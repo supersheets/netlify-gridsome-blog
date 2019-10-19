@@ -28,7 +28,18 @@ module.exports = {
           }
         }
       }
-    }
+    },
+    {
+      use: '@gridsome/source-graphql',
+      options: {
+        url: 'https://api.supersheets.io/dev/1Li6CHJtW5ShwzVDRFRMCjhYPfmNNWRamquW4S_EaCck/graphql',
+        fieldName: 'supersheet',
+        typeName: 'Supersheet',
+        headers: {
+          // Authorization: `Bearer ${process.env.AUTH_TOKEN}`,
+        },
+      },
+    },
   ],
 
   transformers: {

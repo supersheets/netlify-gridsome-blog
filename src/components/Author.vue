@@ -4,7 +4,7 @@
 		<g-image alt="Author image" class="author__image" src="~/assets/images/author.jpg" width="180" height="180" blur="5" />
 
 		<h1 v-if="showTitle" class="author__site-title">
-			{{ $static.metadata.siteName }}
+			{{ $static.supersheet.metadata.title }}
 		</h1>
 
 		<p class="author__intro">
@@ -21,9 +21,11 @@
 
 <static-query>
 query {
-  metadata {
-    siteName
-  }
+	supersheet {
+		metadata: findOne(filter: { id: { eq: "site-1" } }) {
+    	title
+  	}
+	}
 }
 </static-query>
 
