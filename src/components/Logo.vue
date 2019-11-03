@@ -1,17 +1,15 @@
 <template>
 	<g-link class="logo" to="/">
 	  <span class="logo__text">
-	    &larr; {{ $static.supersheet.metadata.title }}
+	    &larr; {{ $static.site.title }}
 	  </span>
 	</g-link>
 </template>
 
 <static-query>
 query {
-	supersheet {
-		metadata: findOne(filter: { id: { eq: "site-1" } }) {
-    	title
-  	}
+	site {
+		title
 	}
 }
 </static-query>

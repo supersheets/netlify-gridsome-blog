@@ -5,9 +5,7 @@
 
     <!-- List posts -->
     <div class="posts">
-      <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node"/>
-    </div>
-
+      <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node"/>    </div>
   </Layout>
 </template>
 
@@ -19,9 +17,10 @@ query {
         id
         title
         date (format: "D. MMMM YYYY")
-        timeToRead
-        description
-        cover_image (width: 770, height: 380, blur: 10)
+        read_time
+        content {
+          description
+        }
         path
         tags {
           id

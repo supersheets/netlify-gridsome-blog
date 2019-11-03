@@ -1,30 +1,39 @@
 <template>
 	<div class="author">
 
-		<g-image alt="Author image" class="author__image" src="~/assets/images/author.jpg" width="180" height="180" blur="5" />
+		<g-image alt="Author image" class="author__image" :src="$static.authors.edges[0].node.avatar" width="180" height="180" blur="5" />
 
 		<h1 v-if="showTitle" class="author__site-title">
-			{{ $static.supersheet.metadata.title }}
+			{{ $static.sites.edges[0].node.title }}
 		</h1>
 
 		<p class="author__intro">
-			A simple, hackable & minimalistic starter for Gridsome that uses Markdown for content.
+			{{ $static.authors.edges[0].node.intro }}
 		</p>
 
 		<p class="author__links">
 			<a href="//twitter.com/gridsome">Follow on Twitter</a>
 			<a href="//github.com/gridsome/gridsome-starter-blog">GitHub</a>
 		</p>
-
 	</div>
 </template>
 
 <static-query>
 query {
-	supersheet {
-		metadata: findOne(filter: { id: { eq: "site-1" } }) {
-    	title
-  	}
+	sites: allSite {
+		edges {
+			node {
+				title
+			}
+		}
+	}
+	authors: allAuthor {
+		edges {
+			node {
+				avatar
+				intro
+			}
+		}
 	}
 }
 </static-query>

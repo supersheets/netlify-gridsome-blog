@@ -14,7 +14,7 @@
         <g-image alt="Cover image" v-if="$page.post.cover_image" :src="$page.post.cover_image" />
       </div>
 
-      <div class="post__content" v-html="$page.post.content" />
+      <div class="post__content" v-html="$page.post.content.body" />
 
       <div class="post__footer">
         <PostTags :post="$page.post" />
@@ -60,15 +60,16 @@ query Post ($id: ID!) {
     title
     path
     date (format: "D. MMMM YYYY")
-    timeToRead
+    read_time
     tags {
       id
       title
       path
     }
-    description
-    content
-    cover_image (width: 860, blur: 10)
+    content {
+      description
+      body
+    }
   }
 }
 </page-query>

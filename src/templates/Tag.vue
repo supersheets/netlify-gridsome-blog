@@ -21,9 +21,11 @@ query Tag ($id: ID!) {
             title
             path
             date (format: "D. MMMM YYYY")
-            timeToRead
-            description
-            content
+            read_time
+            content {
+              description
+              body
+            }
           }
         }
       }

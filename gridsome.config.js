@@ -14,32 +14,32 @@ module.exports = {
   },
 
   plugins: [
-    {
-      // Create posts from markdown files
-      use: '@gridsome/source-filesystem',
-      options: {
-        typeName: 'Post',
-        path: 'content/posts/*.md',
-        refs: {
-          // Creates a GraphQL collection from 'tags' in front-matter and adds a reference.
-          tags: {
-            typeName: 'Tag',
-            create: true
-          }
-        }
-      }
-    },
-    {
-      use: '@gridsome/source-graphql',
-      options: {
-        url: 'https://api.supersheets.io/dev/1Li6CHJtW5ShwzVDRFRMCjhYPfmNNWRamquW4S_EaCck/graphql',
-        fieldName: 'supersheet',
-        typeName: 'Supersheet',
-        headers: {
-          // Authorization: `Bearer ${process.env.AUTH_TOKEN}`,
-        },
-      },
-    },
+    // {
+    //   // Create posts from markdown files
+    //   use: '@gridsome/source-filesystem',
+    //   options: {
+    //     typeName: 'Post',
+    //     path: 'content/posts/*.md',
+    //     refs: {
+    //       // Creates a GraphQL collection from 'tags' in front-matter and adds a reference.
+    //       tags: {
+    //         typeName: 'Tag',
+    //         create: true
+    //       }
+    //     }
+    //   }
+    // },
+    // {
+    //   use: '@gridsome/source-graphql',
+    //   options: {
+    //     url: 'https://api.supersheets.io/staging/1HVYGsrqm9rpBaeZE7y7OIt4atpA2S38gkynN51_vLnw/graphql',
+    //     fieldName: 'supersheet',
+    //     typeName: 'Supersheet',
+    //     headers: {
+    //       // Authorization: `Bearer ${process.env.AUTH_TOKEN}`,
+    //     },
+    //   },
+    // },
   ],
 
   transformers: {
